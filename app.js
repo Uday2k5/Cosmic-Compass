@@ -292,10 +292,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
     async function fetchPrediction() {
-        console.log("Calling REAL API backend at http://127.0.0.1:5000/predict");
+        console.log("Calling REAL API backend at https://cosmic-compass-z0gt.onrender.com/predict'");
         
 
-        const apiUrl = 'https://cosmic-compass-z0gt.onrender.com';
+        const apiUrl = 'https://cosmic-compass-z0gt.onrender.com/predict'';
 
         try {
             const response = await fetch(apiUrl, {
