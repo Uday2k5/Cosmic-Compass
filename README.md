@@ -1,109 +1,127 @@
-Cosmic Compass: Asteroid Trajectory Forecasting System 🌠
+# 🌠 Cosmic Compass: Asteroid Trajectory Forecasting System
 
-Cosmic Compass is a high-performance deep learning system designed to predict the 3D trajectory of Near-Earth Asteroids (NEAs). By leveraging Long Short-Term Memory (LSTM) networks, the system overcomes the latency bottlenecks of traditional physics-based solvers, providing millisecond-level inference with 99.90% accuracy.
+**Cosmic Compass** is a high-performance deep learning system designed to predict the **3D trajectory of Near-Earth Asteroids (NEAs)**.  
+By leveraging **Long Short-Term Memory (LSTM)** networks, the system overcomes the latency bottlenecks of traditional physics-based solvers, delivering **millisecond-level inference with near-perfect accuracy**.
 
-🚀 Key Highlights
+---
 
-High-Speed Inference: Reduces prediction time from seconds/minutes (numerical integration) to milliseconds (~50ms).
+## 🚀 Key Highlights
 
-Superior Precision: Achieved a Mean Absolute Percentage Error (MAPE) of 0.1069% on unseen test data, representing a predictive accuracy of 99.8931%.
+- **⚡ High-Speed Inference**  
+  Reduces prediction time from seconds/minutes (numerical integration) to **~50 ms**.
 
-End-to-End Pipeline: Includes automated data acquisition from JPL HORIZONS, an optimized LSTM-based prediction engine, and an interactive 3D web visualization using Plotly.js.
+- **🎯 Superior Precision**  
+  Achieved a **Mean Absolute Percentage Error (MAPE) of 0.1069%** on unseen test data  
+  → **Predictive accuracy: 99.8931%**
 
-🛠️ Technical Stack
+- **🔁 End-to-End Pipeline**  
+  - Automated data acquisition from **JPL HORIZONS**
+  - Optimized **LSTM-based prediction engine**
+  - Interactive **3D web visualization** using **Plotly.js**
 
-Deep Learning: TensorFlow, Keras (Stacked LSTM Architecture)
+---
 
-Backend: Python, Flask (RESTful Inference Service)
+## 🛠️ Technical Stack
 
-Frontend: JavaScript, Plotly.js (Scientific 3D Visualization), HTML5/CSS3
+### 🔬 Deep Learning
+- TensorFlow  
+- Keras (Stacked LSTM Architecture)
 
-Data Engineering: NumPy, Scikit-learn (MinMaxScaler)
+### ⚙️ Backend
+- Python  
+- Flask (RESTful Inference Service)
 
-Infrastucture: Render (Backend API), Vercel (Frontend Hosting)
+### 🌐 Frontend
+- JavaScript  
+- Plotly.js (Scientific 3D Visualization)  
+- HTML5 / CSS3
 
-📂 Project Architecture
+### 📊 Data Engineering
+- NumPy  
+- Scikit-learn (`MinMaxScaler`)
 
-The system follows a modular three-tier architecture:
+### ☁️ Infrastructure
+- **Render** – Backend API hosting  
+- **Vercel** – Frontend deployment
 
-Data Tier: Fetches 7 years of daily $X, Y, Z$ coordinates for asteroid 433 Eros. Data is normalized using MinMaxScaler and structured using a Sliding Window Technique (60-day input $\to$ 10-day forecast).
+---
 
-Model Tier: A Stacked LSTM model (two layers, 46 units each) trained with an optimized learning rate ($0.0001$) to capture non-linear orbital momentum across 34,042 trainable parameters.
+## 🧠 Project Architecture
 
-Service Tier: A Flask API that serves the serialized model and scaler, providing a low-latency RESTful endpoint for real-time predictions.
+The system follows a **modular three-tier architecture**:
 
-📊 Results & Evaluation
+### 1️⃣ Data Tier
+- Fetches **7 years of daily** asteroid position data  
+- Coordinates: **X, Y, Z**
+- Target object: **Asteroid 433 Eros**
+- Data normalization using `MinMaxScaler`
+- Structured via **Sliding Window Technique**  
+  - **60-day input → 10-day forecast**
 
-The model was evaluated against a Gated Recurrent Unit (GRU) model to justify the architecture choice:
+---
 
-Metric
+### 2️⃣ Model Tier
+- **Stacked LSTM architecture**
+  - 2 LSTM layers
+  - 46 units per layer
+- Optimized learning rate: **0.0001**
+- Captures **non-linear orbital momentum**
+- **34,042 trainable parameters**
 
-LSTM (Selected)
+---
 
-GRU (Baseline)
+### 3️⃣ Service Tier
+- Flask-based REST API
+- Serves:
+  - Serialized LSTM model
+  - Trained scaler
+- Provides **low-latency real-time predictions**
 
-Accuracy (MAPE)
+> The LSTM architecture was chosen for its superior ability to model **long-term temporal dependencies**, which are essential for predicting **elliptical orbital dynamics** and enabling **reliable planetary defense systems**.
 
-99.90%
+---
 
-99.88%
+## 💻 Installation & Setup
 
-Inference Latency
+### ✅ Prerequisites
+- Python **3.8+**
+- GitHub account (for deployment)
 
-~50ms
+---
 
-~40ms
+### 🔧 Backend Setup
 
-Stability
-
-High
-
-Medium
-
-The LSTM was chosen for its superior ability to handle long-term temporal dependencies in elliptical orbits, essential for reliable planetary defense.
-
-💻 Installation & Setup
-
-Prerequisites
-
-Python 3.8+
-
-GitHub Account (for deployment)
-
-Backend Setup
-
-Clone the repository:
-
-git clone [https://github.com/yourusername/cosmic-compass.git](https://github.com/yourusername/cosmic-compass.git)
+#### Clone the repository
+```bash
+git clone https://github.com/yourusername/cosmic-compass.git
 cd cosmic-compass
-
-
-Install dependencies:
-
 pip install -r requirements.txt
-
-
-Start the Flask server:
-
 python app.py
+```
+
+#### Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+#### Start the Flask server
+```bash
+python app.py
+```
 
 
-Frontend Setup
+### 🌐 Frontend Setup
 
-Open index.html in your browser (via Live Server or similar).
+-Open index.html in your browser
+-Ensure the fetch() URL in your JavaScript file matches the backend API address
 
-Ensure the fetch() URL in your JavaScript matches your backend address.
+### 👥 Contributors
 
-👥 Contributors
+- Student 1: Data Engineering, Frontend Visualization, Unit Conversions
 
-Student 1: Data Engineering, Frontend Visualization, Unit Conversions.
+- Student 2: Model Core, Training Optimization, Flask API Development
 
-Student 2: Model Core, Training Optimization, Flask API Development.
+- Student 3: System Architecture, Serialization, Integration Testing, Documentation
 
-Student 3: System Architecture, Serialization, Integration Testing, Documentation.
 
-📜 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-Developed as a Development-cum-Research project for advancing planetary defense monitoring systems.
